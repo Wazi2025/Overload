@@ -38,7 +38,7 @@ class Program
         Calculator calc = new Calculator();
         bool programRunning = true;
 
-        //easer egg idea: add the Don't Panic ASCII art if the sum equals 42 :-)
+        //easter egg idea: add the Don't Panic ASCII art if the sum equals 42 :-)
 
         while (programRunning)
         {
