@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
-using System.IO.Pipelines;
-using System.Reflection.Metadata.Ecma335;
+﻿// using System.ComponentModel;
+// using System.IO.Pipelines;
+// using System.Reflection.Metadata.Ecma335;
 
 namespace Overload;
 
@@ -27,8 +27,9 @@ class Program
                 return true;
             else
                 return false;
-
         }
+
+
     }
     static void Main(string[] args)
     {
@@ -37,6 +38,7 @@ class Program
         string? number3 = "";
         Calculator calc = new Calculator();
         bool programRunning = true;
+        const int dontPanic = 42;
 
         //easter egg idea: add the Don't Panic ASCII art if the sum equals 42 :-)
 
@@ -63,7 +65,10 @@ class Program
                         int num1 = Convert.ToInt32(number1);
                         int num2 = Convert.ToInt32(number2);
 
-                        Console.WriteLine($"The sum is: {calc.Add(num1, num2)}\n");
+                        if (calc.Add(num1, num2) == dontPanic)
+                            Console.WriteLine("Don't Panic!\n");
+                        else
+                            Console.WriteLine($"The sum is: {calc.Add(num1, num2)}\n");
                     }
                     else
                     {
@@ -84,7 +89,10 @@ class Program
                         int num2 = Convert.ToInt32(number2);
                         int num3 = Convert.ToInt32(number3);
 
-                        Console.WriteLine($"The sum is: {calc.Add(num1, num2, num3)}\n");
+                        if (calc.Add(num1, num2, num3) == dontPanic)
+                            Console.WriteLine("Don't Panic!\n");
+                        else
+                            Console.WriteLine($"The sum is: {calc.Add(num1, num2, num3)}\n");
 
                     }
                     else
@@ -96,7 +104,7 @@ class Program
                     programRunning = false;
                     break;
                 default:
-                    Console.WriteLine("Please choose '1' or '2'.");
+                    Console.WriteLine("Please choose '1' or '2'.\n");
                     break;
             }
         }
