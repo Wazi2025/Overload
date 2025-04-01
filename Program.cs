@@ -38,6 +38,8 @@ class Program
         Calculator calc = new Calculator();
         bool programRunning = true;
 
+        //easer egg idea: add the Don't Panic ASCII art if the sum equals 42 :-)
+
         while (programRunning)
         {
 
@@ -51,18 +53,21 @@ class Program
             {
                 case "1":
                     Console.WriteLine("First number:");
-
                     number1 = Console.ReadLine();
-                    if (calc.IsANumber(number1))
-                    {
-                        Console.WriteLine("Second number:");
-                        number2 = Console.ReadLine();
+                    Console.WriteLine("Second number:");
+                    number2 = Console.ReadLine();
 
-                        if (calc.IsANumber(number2))
-                        {
-                            //Console.WriteLine(calc.Add(int.Parse(number1), int.Parse(number1)));
-                            Console.WriteLine($"The sum is: {calc.Add(int.Parse(number1), int.Parse(number2))}");
-                        }
+                    if (calc.IsANumber(number1) && calc.IsANumber(number2))
+                    {
+                        //convert strings to int after verifying
+                        int num1 = Convert.ToInt32(number1);
+                        int num2 = Convert.ToInt32(number2);
+
+                        Console.WriteLine($"The sum is: {calc.Add(num1, num2)}\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Please type in numbers.\n");
                     }
                     break;
                 case "2":
@@ -72,7 +77,20 @@ class Program
                     number2 = Console.ReadLine();
                     Console.WriteLine("Third number:");
                     number3 = Console.ReadLine();
-                    Console.WriteLine($"The sum is: {calc.Add(int.Parse(number1), int.Parse(number2), int.Parse(number3))}");
+                    if (calc.IsANumber(number1) && calc.IsANumber(number2) && calc.IsANumber(number3))
+                    {
+                        //convert strings to int after verifying
+                        int num1 = Convert.ToInt32(number1);
+                        int num2 = Convert.ToInt32(number2);
+                        int num3 = Convert.ToInt32(number3);
+
+                        Console.WriteLine($"The sum is: {calc.Add(num1, num2, num3)}\n");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Please type in numbers.\n");
+                    }
                     break;
                 case "3":
                     programRunning = false;
@@ -82,10 +100,5 @@ class Program
                     break;
             }
         }
-        //Console.WriteLine(calc.Add(int.Parse(number1), int.Parse(number1)));
-
-        // if (!int.TryParse(number1, out int number))
-        //     Console.WriteLine("Not a number!");
-
     }
 }
