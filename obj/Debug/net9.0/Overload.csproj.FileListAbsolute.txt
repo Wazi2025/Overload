@@ -12,3 +12,4 @@ c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\refint\Overload.dll
 c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.pdb
 c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.genruntimeconfig.cache
 c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\ref\Overload.dll
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.sourcelink.json

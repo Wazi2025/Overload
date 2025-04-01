@@ -19,6 +19,16 @@ class Program
         {
             return a + b + c;
         }
+
+        public bool IsANumber(string value)
+        {
+            //check if string can be converted to number                
+            if (int.TryParse(value, out int number))
+                return true;
+            else
+                return false;
+
+        }
     }
     static void Main(string[] args)
     {
@@ -41,11 +51,19 @@ class Program
             {
                 case "1":
                     Console.WriteLine("First number:");
+
                     number1 = Console.ReadLine();
-                    Console.WriteLine("Second number:");
-                    number2 = Console.ReadLine();
-                    //Console.WriteLine(calc.Add(int.Parse(number1), int.Parse(number1)));
-                    Console.WriteLine($"The sum is: {calc.Add(int.Parse(number1), int.Parse(number1))}");
+                    if (calc.IsANumber(number1))
+                    {
+                        Console.WriteLine("Second number:");
+                        number2 = Console.ReadLine();
+
+                        if (calc.IsANumber(number2))
+                        {
+                            //Console.WriteLine(calc.Add(int.Parse(number1), int.Parse(number1)));
+                            Console.WriteLine($"The sum is: {calc.Add(int.Parse(number1), int.Parse(number2))}");
+                        }
+                    }
                     break;
                 case "2":
                     Console.WriteLine("First number:");
@@ -54,7 +72,7 @@ class Program
                     number2 = Console.ReadLine();
                     Console.WriteLine("Third number:");
                     number3 = Console.ReadLine();
-                    Console.WriteLine($"The sum is: {calc.Add(int.Parse(number1), int.Parse(number1), int.Parse(number1))}");
+                    Console.WriteLine($"The sum is: {calc.Add(int.Parse(number1), int.Parse(number2), int.Parse(number3))}");
                     break;
                 case "3":
                     programRunning = false;
