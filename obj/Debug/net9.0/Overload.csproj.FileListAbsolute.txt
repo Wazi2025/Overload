@@ -1,0 +1,14 @@
+c:\Users\Instruktor\Desktop\CSharp\Overload\bin\Debug\net9.0\Overload.exe
+c:\Users\Instruktor\Desktop\CSharp\Overload\bin\Debug\net9.0\Overload.deps.json
+c:\Users\Instruktor\Desktop\CSharp\Overload\bin\Debug\net9.0\Overload.runtimeconfig.json
+c:\Users\Instruktor\Desktop\CSharp\Overload\bin\Debug\net9.0\Overload.dll
+c:\Users\Instruktor\Desktop\CSharp\Overload\bin\Debug\net9.0\Overload.pdb
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.AssemblyInfoInputs.cache
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.AssemblyInfo.cs
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.csproj.CoreCompileInputs.cache
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.dll
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\refint\Overload.dll
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.pdb
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\Overload.genruntimeconfig.cache
+c:\Users\Instruktor\Desktop\CSharp\Overload\obj\Debug\net9.0\ref\Overload.dll
