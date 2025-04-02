@@ -2,15 +2,53 @@
 
 class Program
 {
+
     //create a Calculator class
-    //note: to avoid 'possible null reference return' we declare these string properties
-    //with string? (questionmark)
+    //note: to avoid 'possible null reference return' we declare these string variables
+    //with string?
     public class Calculator
     {
-        //since we aren't using any custom logic in get/set we'll use C#'s auto-implementation
-        public string? Number1 { get; set; }
-        public string? Number2 { get; set; }
-        public string? Number3 { get; set; }
+        private string? _number1;
+        private string? _number2;
+        private string? _number3;
+
+        public string? Number1
+        {
+            get
+            {
+                return _number1;
+            }
+
+            set
+            {
+                _number1 = value;
+            }
+        }
+        public string? Number2
+        {
+            get
+            {
+                return _number2;
+            }
+
+            set
+            {
+                _number2 = value;
+            }
+        }
+
+        public string? Number3
+        {
+            get
+            {
+                return _number3;
+            }
+
+            set
+            {
+                _number3 = value;
+            }
+        }
 
         //create method's with the same name but a different amount or type of parameters == method overload
         public int Add(int a, int b)
@@ -33,13 +71,20 @@ class Program
         }
     }//end of class Calculator
 
-    //instantiate our calc object at the Program class level since we will need to access it
-    //in the ReadInput method
-    static Calculator calc = new Calculator();
+    //instantiate our calc object
+    //static Calculator calc = new Calculator();
 
-    //method needs to be static so we can access our calc object
-    static public void ReadInput()
+    // public void Test()
+    // {
+    //     calc.Add(1,2);
+    // }
+
+    static void Main(string[] args)
     {
+        // //instantiate our calc object
+        //since we don't have any methods at the Program class level we can instantiate it locally under Main
+        Calculator calc = new Calculator();
+
         bool programRunning = true;
         const int dontPanic = 42;
         const string dontPanicMessage = @"
@@ -51,7 +96,6 @@ class Program
         \ \____/\ \____/\ \_\ \_\     \ \__\    \ \_\ \__/.\_\ \_\ \_\ \_\ \____\
          \/___/  \/___/  \/_/\/_/      \/__/     \/_/\/__/\/_/\/_/\/_/\/_/\/____/
                                                                                  ";
-
 
         //the while loop will continue until the user chooses option 3 (exit) since the loop depends on
         //programRunning being true.
@@ -76,7 +120,7 @@ class Program
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
                         //convert strings to int after verifying
-                        //we could of course have used ToInt64 but that seemed like a bit of an overkill
+                        //we could of course used ToInt64 but that seemed like a bit of an overkill
                         //in this little example
                         int num1 = Convert.ToInt32(calc.Number1);
                         int num2 = Convert.ToInt32(calc.Number2);
@@ -128,11 +172,6 @@ class Program
                     break;
             }
         }
-    }
-
-    static void Main(string[] args)
-    {
-        //call method
-        ReadInput();
     }//end of Main
+
 }
