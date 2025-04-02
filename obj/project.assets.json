@@ -8,31 +8,24 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Bilbo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Instruktor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VSCode\\CSharp\\Overload\\Overload.csproj",
+      "projectUniqueName": "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj",
       "projectName": "Overload",
-      "projectPath": "D:\\VSCode\\CSharp\\Overload\\Overload.csproj",
-      "packagesPath": "C:\\Users\\Bilbo\\.nuget\\packages\\",
-      "outputPath": "D:\\VSCode\\CSharp\\Overload\\obj\\",
+      "projectPath": "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj",
+      "packagesPath": "C:\\Users\\Instruktor\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bilbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Instruktor\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

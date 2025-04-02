@@ -39,8 +39,16 @@ class Program
         Calculator calc = new Calculator();
         bool programRunning = true;
         const int dontPanic = 42;
+        const string dontPanicMessage = @"
+      ____                     __   __        ____                               
+     /\  _`\                  /\ \ /\ \__    /\  _`\                __           
+     \ \ \/\ \    ___     ___ \ \/ \ \ ,_\   \ \ \L\ \ __      ___ /\_\    ___   
+      \ \ \ \ \  / __`\ /' _ `\\/   \ \ \/    \ \ ,__/'__`\  /' _ `\/\ \  /'___\ 
+       \ \ \_\ \/\ \L\ \/\ \/\ \     \ \ \_    \ \ \/\ \L\.\_/\ \/\ \ \ \/\ \__/ 
+        \ \____/\ \____/\ \_\ \_\     \ \__\    \ \_\ \__/.\_\ \_\ \_\ \_\ \____\
+         \/___/  \/___/  \/_/\/_/      \/__/     \/_/\/__/\/_/\/_/\/_/\/_/\/____/
+                                                                                 ";
 
-        //easter egg idea: add the Don't Panic ASCII art if the sum equals 42 :-)
 
         while (programRunning)
         {
@@ -66,7 +74,7 @@ class Program
                         int num2 = Convert.ToInt32(number2);
 
                         if (calc.Add(num1, num2) == dontPanic)
-                            Console.WriteLine("Don't Panic!\n");
+                            Console.WriteLine(dontPanicMessage);
                         else
                             Console.WriteLine($"The sum is: {calc.Add(num1, num2)}\n");
                     }
@@ -90,7 +98,7 @@ class Program
                         int num3 = Convert.ToInt32(number3);
 
                         if (calc.Add(num1, num2, num3) == dontPanic)
-                            Console.WriteLine("Don't Panic!\n");
+                            Console.WriteLine(dontPanicMessage);
                         else
                             Console.WriteLine($"The sum is: {calc.Add(num1, num2, num3)}\n");
 
