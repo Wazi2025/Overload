@@ -4,13 +4,15 @@ class Program
 {
 
     //create a Calculator class
+    //note: to avoid 'possible null reference return' we declare these string variables
+    //with string?
     public class Calculator
     {
         private string? _number1;
         private string? _number2;
         private string? _number3;
 
-        public string Number1
+        public string? Number1
         {
             get
             {
@@ -22,7 +24,7 @@ class Program
                 _number1 = value;
             }
         }
-        public string Number2
+        public string? Number2
         {
             get
             {
@@ -35,7 +37,7 @@ class Program
             }
         }
 
-        public string Number3
+        public string? Number3
         {
             get
             {
@@ -59,7 +61,7 @@ class Program
             return a + b + c;
         }
 
-        public bool IsANumber(string value)
+        public bool IsANumber(string? value)
         {
             //check if string can be converted to number                
             if (int.TryParse(value, out int number))
@@ -80,7 +82,7 @@ class Program
     static void Main(string[] args)
     {
         // //instantiate our calc object
-        //since we don't have any methods at the Program class level we can instantiate locally under Main
+        //since we don't have any methods at the Program class level we can instantiate it locally under Main
         Calculator calc = new Calculator();
 
         bool programRunning = true;
