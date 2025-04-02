@@ -1,14 +1,52 @@
-﻿// using System.ComponentModel;
-// using System.IO.Pipelines;
-// using System.Reflection.Metadata.Ecma335;
-
-namespace Overload;
+﻿namespace Overload;
 
 class Program
 {
 
+    //create a Calculator class
     public class Calculator
     {
+        private string? _number1;
+        private string? _number2;
+        private string? _number3;
+
+        public string Number1
+        {
+            get
+            {
+                return _number1;
+            }
+
+            set
+            {
+                _number1 = value;
+            }
+        }
+        public string Number2
+        {
+            get
+            {
+                return _number2;
+            }
+
+            set
+            {
+                _number2 = value;
+            }
+        }
+
+        public string Number3
+        {
+            get
+            {
+                return _number3;
+            }
+
+            set
+            {
+                _number3 = value;
+            }
+        }
 
         //create method's with the same name but a different amount or type of parameters == method overload
         public int Add(int a, int b)
@@ -29,14 +67,20 @@ class Program
             else
                 return false;
         }
-    }
+    }//end of class Calculator
+
+    //instantiate our calc object
+    //static Calculator calc = new Calculator();
+
+    // public void Test()
+    // {
+    //     calc.Add(1,2);
+    // }
+
     static void Main(string[] args)
     {
-        string? number1 = "";
-        string? number2 = "";
-        string? number3 = "";
-
-        //instantiate our calc object
+        // //instantiate our calc object
+        //since we don't have any methods at the Program class level we can instantiate locally under Main
         Calculator calc = new Calculator();
 
         bool programRunning = true;
@@ -61,21 +105,23 @@ class Program
             Console.WriteLine("3. Exit");
             string? input = Console.ReadLine();
 
-            //choose case based on the main menu choices (1,2,3)
+            //choose case based on the main menu choices the user types in (1,2,3)
             switch (input)
             {
                 case "1":
                     Console.WriteLine("First number:");
-                    number1 = Console.ReadLine();
+                    calc.Number1 = Console.ReadLine();
                     Console.WriteLine("Second number:");
-                    number2 = Console.ReadLine();
+                    calc.Number2 = Console.ReadLine();
 
                     //check if entered numbers (in string format) can be parsed into int
-                    if (calc.IsANumber(number1) && calc.IsANumber(number2))
+                    if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
                         //convert strings to int after verifying
-                        int num1 = Convert.ToInt32(number1);
-                        int num2 = Convert.ToInt32(number2);
+                        //we could of course used ToInt64 but that seemed like a bit of an overkill
+                        //in this little example
+                        int num1 = Convert.ToInt32(calc.Number1);
+                        int num2 = Convert.ToInt32(calc.Number2);
 
                         //display a special message if the sum is the answer to Life, the Universe & Everything :-)
                         if (calc.Add(num1, num2) == dontPanic)
@@ -92,23 +138,21 @@ class Program
                     break;
                 case "2":
                     Console.WriteLine("First number:");
-                    number1 = Console.ReadLine();
+                    calc.Number1 = Console.ReadLine();
                     Console.WriteLine("Second number:");
-                    number2 = Console.ReadLine();
+                    calc.Number2 = Console.ReadLine();
                     Console.WriteLine("Third number:");
-                    number3 = Console.ReadLine();
-                    if (calc.IsANumber(number1) && calc.IsANumber(number2) && calc.IsANumber(number3))
+                    calc.Number3 = Console.ReadLine();
+                    if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2) && calc.IsANumber(calc.Number3))
                     {
-                        //convert strings to int after verifying
-                        int num1 = Convert.ToInt32(number1);
-                        int num2 = Convert.ToInt32(number2);
-                        int num3 = Convert.ToInt32(number3);
+                        int num1 = Convert.ToInt32(calc.Number1);
+                        int num2 = Convert.ToInt32(calc.Number2);
+                        int num3 = Convert.ToInt32(calc.Number3);
 
                         if (calc.Add(num1, num2, num3) == dontPanic)
                             Console.WriteLine(dontPanicMessage);
                         else
                             Console.WriteLine($"The sum is: {calc.Add(num1, num2, num3)}\n");
-
                     }
                     else
                     {
@@ -126,5 +170,6 @@ class Program
                     break;
             }
         }
-    }
+    }//end of Main
+
 }
