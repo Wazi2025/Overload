@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj": {}
+    "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj": {
+    "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj",
+        "projectUniqueName": "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj",
         "projectName": "Overload",
-        "projectPath": "C:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj",
+        "projectPath": "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\Overload.csproj",
         "packagesPath": "C:\\Users\\Instruktor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\obj\\",
+        "outputPath": "c:\\Users\\Instruktor\\Desktop\\CSharp\\Overload\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Instruktor\\AppData\\Roaming\\NuGet\\NuGet.Config"

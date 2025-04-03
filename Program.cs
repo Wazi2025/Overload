@@ -2,15 +2,12 @@
 
 class Program
 {
-    //create a Calculator class
-    //note: to avoid 'possible null reference return' we declare these string properties
-    //with string? (questionmark)
+    //create a Calculator class    
     public class Calculator
     {
         //since we aren't using any custom logic in get/set we'll use C#'s auto-implementation
         public string? Number1 { get; set; }
         public string? Number2 { get; set; }
-        public string? Number3 { get; set; }
 
         //create method's with the same name but a different amount or type of parameters == method overload
         public int Add(int a, int b)
@@ -18,15 +15,15 @@ class Program
             return a + b;
         }
 
-        public int Add(int a, int b, int c)
+        public decimal Add(decimal a, decimal b)
         {
-            return a + b + c;
+            return a + b;
         }
 
         public bool IsANumber(string? value)
         {
             //check if string can be converted to number                
-            if (int.TryParse(value, out int number))
+            if (int.TryParse(value, out int number) || decimal.TryParse(value, out decimal numberDec))
                 return true;
             else
                 return false;
@@ -38,7 +35,7 @@ class Program
     static Calculator calc = new Calculator();
 
     //method needs to be static so we can access our calc object
-    static public void ReadInput()
+    static private void ReadInput()
     {
         bool programRunning = true;
         const int dontPanic = 42;
@@ -57,9 +54,9 @@ class Program
         //programRunning being true.
         while (programRunning)
         {
-            Console.WriteLine("How many numbers would you like to add?");
-            Console.WriteLine("1. Two numbers");
-            Console.WriteLine("2. Three numbers");
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("1. Add two integer numbers");
+            Console.WriteLine("2. Add two decimal numbers");
             Console.WriteLine("3. Exit");
             string? input = Console.ReadLine();
 
@@ -75,6 +72,52 @@ class Program
                     //check if entered numbers (in string format) can be parsed into int
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
+                        string temp;
+                        int indexOfPoint;
+                        bool Number1isDecimal = false;
+                        bool Number2isDecimal = false;
+
+                        //check if is a decimal and inform user
+                        if (calc.Number1.Contains(".")) //|| calc.Number2.Contains("."))
+                        {
+                            Number1isDecimal = true;
+                            //Console.WriteLine($"{calc.Number1} is a decimal number\n");
+                            //break;
+                            // temp = calc.Number1;
+                            // indexOfPoint = temp.IndexOf(".");
+                            // temp = temp.Remove(indexOfPoint);
+                            // calc.Number1 = temp;
+                        }
+
+                        if (calc.Number2.Contains("."))
+                        {
+                            Number2isDecimal = true;
+                        }
+
+                        if (calc.Number1.Contains(".") && calc.Number2.Contains("."))
+                        {
+                            Number2isDecimal = true;
+                            Number1isDecimal = true;
+                        }
+
+
+                        if (Number1isDecimal)
+                        {
+                            Console.WriteLine($"{calc.Number1} is a decimal number\n");
+                            break;
+                        }
+                        else if (Number2isDecimal)
+                        {
+                            Console.WriteLine($"{calc.Number2} is a decimal number\n");
+                            break;
+                        }
+                        else if (Number1isDecimal && Number2isDecimal)
+                        {
+                            Console.WriteLine($"{calc.Number1} is a decimal number\n");
+                            Console.WriteLine($"{calc.Number2} is a decimal number\n");
+                            break;
+                        }
+
                         //convert strings to int after verifying
                         //we could of course have used ToInt64 but that seemed like a bit of an overkill
                         //in this little example
@@ -91,30 +134,41 @@ class Program
                     else
                     {
                         //inform user that he must type in numbers                        
-                        Console.WriteLine($"Please type in numbers.\n");
+                        Console.WriteLine($"Please type in integer numbers.\n");
                     }
                     break;
                 case "2":
-                    Console.WriteLine("First number:");
+                    Console.WriteLine("First decimal number:");
                     calc.Number1 = Console.ReadLine();
-                    Console.WriteLine("Second number:");
+                    Console.WriteLine("Second decimal number:");
                     calc.Number2 = Console.ReadLine();
-                    Console.WriteLine("Third number:");
-                    calc.Number3 = Console.ReadLine();
-                    if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2) && calc.IsANumber(calc.Number3))
-                    {
-                        int num1 = Convert.ToInt32(calc.Number1);
-                        int num2 = Convert.ToInt32(calc.Number2);
-                        int num3 = Convert.ToInt32(calc.Number3);
 
-                        if (calc.Add(num1, num2, num3) == dontPanic)
+                    //check if entered numbers (in string format) can be parsed into int
+                    if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
+                    {
+                        //check if is not a decimal and add .0 (2 becomes 2.0)
+                        if (!calc.Number1.Contains("."))
+                            calc.Number1 += ".0";
+
+                        if (!calc.Number2.Contains("."))
+                            calc.Number2 += ".0";
+                        //convert strings to decimal after verifying
+                        //we could of course have used ToInt64 but that seemed like a bit of an overkill
+                        //in this little example
+                        decimal num1 = Convert.ToDecimal(calc.Number1);
+                        decimal num2 = Convert.ToDecimal(calc.Number2);
+
+                        //display a special message if the sum is the answer to Life, the Universe & Everything :-)
+                        if (calc.Add(num1, num2) == dontPanic)
                             Console.WriteLine(dontPanicMessage);
                         else
-                            Console.WriteLine($"The sum is: {calc.Add(num1, num2, num3)}\n");
+                            //display the sum
+                            Console.WriteLine($"The sum is: {calc.Add(num1, num2)}\n");
                     }
                     else
                     {
-                        Console.WriteLine($"Please type in numbers.\n");
+                        //inform user that he must type in numbers                        
+                        Console.WriteLine($"Please type in decimal numbers.\n");
                     }
                     break;
                 case "3":
