@@ -72,15 +72,18 @@ class Program
                     //check if entered numbers (in string format) can be parsed into int
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
-                        string temp;
-                        int indexOfPoint;
-                        bool Number1isDecimal = false;
-                        bool Number2isDecimal = false;
-
                         //check if is a decimal and inform user
-                        if (calc.Number1.Contains(".")) //|| calc.Number2.Contains("."))
+                        if (calc.Number1.Contains(".") && calc.Number2.Contains("."))
                         {
-                            Number1isDecimal = true;
+                            Console.WriteLine($"{calc.Number1} is a decimal number");
+                            Console.WriteLine($"{calc.Number2} is a decimal number\n");
+                            break;
+                        }
+
+                        if (calc.Number1.Contains("."))
+                        {
+                            Console.WriteLine($"{calc.Number1} is a decimal number\n");
+                            break;
                             //Console.WriteLine($"{calc.Number1} is a decimal number\n");
                             //break;
                             // temp = calc.Number1;
@@ -91,32 +94,14 @@ class Program
 
                         if (calc.Number2.Contains("."))
                         {
-                            Number2isDecimal = true;
-                        }
-
-                        if (calc.Number1.Contains(".") && calc.Number2.Contains("."))
-                        {
-                            Number2isDecimal = true;
-                            Number1isDecimal = true;
-                        }
-
-
-                        if (Number1isDecimal)
-                        {
-                            Console.WriteLine($"{calc.Number1} is a decimal number\n");
-                            break;
-                        }
-                        else if (Number2isDecimal)
-                        {
                             Console.WriteLine($"{calc.Number2} is a decimal number\n");
                             break;
                         }
-                        else if (Number1isDecimal && Number2isDecimal)
-                        {
-                            Console.WriteLine($"{calc.Number1} is a decimal number\n");
-                            Console.WriteLine($"{calc.Number2} is a decimal number\n");
-                            break;
-                        }
+
+
+
+
+
 
                         //convert strings to int after verifying
                         //we could of course have used ToInt64 but that seemed like a bit of an overkill
@@ -147,6 +132,7 @@ class Program
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
                         //check if is not a decimal and add .0 (2 becomes 2.0)
+                        //Note: use same check here as with integers
                         if (!calc.Number1.Contains("."))
                             calc.Number1 += ".0";
 
