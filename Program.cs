@@ -38,6 +38,8 @@ class Program
     static private void ReadInput()
     {
         bool programRunning = true;
+        const string isDecimalMessage = "is a decimal number";
+        const string isIntegerMessage = "is an integer number";
         const int dontPanic = 42;
         const string dontPanicMessage = @"
       ____                     __   __        ____                               
@@ -72,37 +74,25 @@ class Program
                     //check if entered numbers (in string format) can be parsed into int
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
-                        //check if is a decimal and inform user
+                        //check if it is a decimal and inform user
                         if (calc.Number1.Contains(".") && calc.Number2.Contains("."))
                         {
-                            Console.WriteLine($"{calc.Number1} is a decimal number");
-                            Console.WriteLine($"{calc.Number2} is a decimal number\n");
+                            Console.WriteLine($"{calc.Number1} {isDecimalMessage}");
+                            Console.WriteLine($"{calc.Number2} {isDecimalMessage}\n");
                             break;
                         }
 
                         if (calc.Number1.Contains("."))
                         {
-                            Console.WriteLine($"{calc.Number1} is a decimal number\n");
+                            Console.WriteLine($"{calc.Number1} {isDecimalMessage}\n");
                             break;
-                            //Console.WriteLine($"{calc.Number1} is a decimal number\n");
-                            //break;
-                            // temp = calc.Number1;
-                            // indexOfPoint = temp.IndexOf(".");
-                            // temp = temp.Remove(indexOfPoint);
-                            // calc.Number1 = temp;
                         }
 
                         if (calc.Number2.Contains("."))
                         {
-                            Console.WriteLine($"{calc.Number2} is a decimal number\n");
+                            Console.WriteLine($"{calc.Number2} {isDecimalMessage}\n");
                             break;
                         }
-
-
-
-
-
-
                         //convert strings to int after verifying
                         //we could of course have used ToInt64 but that seemed like a bit of an overkill
                         //in this little example
@@ -131,13 +121,25 @@ class Program
                     //check if entered numbers (in string format) can be parsed into int
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
-                        //check if is not a decimal and add .0 (2 becomes 2.0)
-                        //Note: use same check here as with integers
+                        //check if it is not a decimal and inform user
+                        if (!calc.Number1.Contains(".") && !calc.Number2.Contains("."))
+                        {
+                            Console.WriteLine($"{calc.Number1} {isIntegerMessage}");
+                            Console.WriteLine($"{calc.Number2} {isIntegerMessage}\n");
+                            break;
+                        }
+
                         if (!calc.Number1.Contains("."))
-                            calc.Number1 += ".0";
+                        {
+                            Console.WriteLine($"{calc.Number1} {isIntegerMessage}\n");
+                            break;
+                        }
 
                         if (!calc.Number2.Contains("."))
-                            calc.Number2 += ".0";
+                        {
+                            Console.WriteLine($"{calc.Number2} {isIntegerMessage}\n");
+                            break;
+                        }
                         //convert strings to decimal after verifying
                         //we could of course have used ToInt64 but that seemed like a bit of an overkill
                         //in this little example
