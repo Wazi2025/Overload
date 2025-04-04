@@ -81,14 +81,12 @@ class Program
                             Console.WriteLine($"{calc.Number2} {isDecimalMessage}\n");
                             break;
                         }
-
-                        if (calc.Number1.Contains("."))
+                        else if (calc.Number1.Contains("."))
                         {
                             Console.WriteLine($"{calc.Number1} {isDecimalMessage}\n");
                             break;
                         }
-
-                        if (calc.Number2.Contains("."))
+                        else if (calc.Number2.Contains("."))
                         {
                             Console.WriteLine($"{calc.Number2} {isDecimalMessage}\n");
                             break;
@@ -128,14 +126,12 @@ class Program
                             Console.WriteLine($"{calc.Number2} {isIntegerMessage}\n");
                             break;
                         }
-
-                        if (!calc.Number1.Contains("."))
+                        else if (!calc.Number1.Contains("."))
                         {
                             Console.WriteLine($"{calc.Number1} {isIntegerMessage}\n");
                             break;
                         }
-
-                        if (!calc.Number2.Contains("."))
+                        else if (!calc.Number2.Contains("."))
                         {
                             Console.WriteLine($"{calc.Number2} {isIntegerMessage}\n");
                             break;
