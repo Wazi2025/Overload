@@ -1,4 +1,6 @@
-﻿namespace Overload;
+﻿using System.Globalization;
+
+namespace Overload;
 
 class Program
 {
@@ -40,6 +42,10 @@ class Program
         bool programRunning = true;
         const string isDecimalMessage = "is a decimal number";
         const string isIntegerMessage = "is an integer number";
+
+        //fetch local decimal separator for numbers
+        string decimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
         const int dontPanic = 42;
         const string dontPanicMessage = @"
       ____                     __   __        ____                               
@@ -58,7 +64,7 @@ class Program
         {
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Add two integer numbers");
-            Console.WriteLine("2. Add two decimal numbers");
+            Console.WriteLine($"2. Add two decimal numbers (decimal separator is: '{decimalSeparator}')");
             Console.WriteLine("3. Exit");
             string? input = Console.ReadLine();
 
@@ -74,21 +80,21 @@ class Program
                     //check if entered numbers (in string format) can be parsed into int
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
-                        //check if it is a decimal and inform user
-                        if (calc.Number1.Contains(".") && calc.Number2.Contains("."))
+                        //check if it is a decimal and inform user                       
+                        if (calc.Number1.Contains(decimalSeparator) && calc.Number2.Contains(decimalSeparator))
                         {
-                            Console.WriteLine($"{calc.Number1} {isDecimalMessage}");
-                            Console.WriteLine($"{calc.Number2} {isDecimalMessage}\n");
+                            Console.WriteLine($"'{calc.Number1}' {isDecimalMessage}");
+                            Console.WriteLine($"'{calc.Number2}' {isDecimalMessage}\n");
                             break;
                         }
-                        else if (calc.Number1.Contains("."))
+                        else if (calc.Number1.Contains(decimalSeparator))
                         {
-                            Console.WriteLine($"{calc.Number1} {isDecimalMessage}\n");
+                            Console.WriteLine($"'{calc.Number1}' {isDecimalMessage}\n");
                             break;
                         }
-                        else if (calc.Number2.Contains("."))
+                        else if (calc.Number2.Contains(decimalSeparator))
                         {
-                            Console.WriteLine($"{calc.Number2} {isDecimalMessage}\n");
+                            Console.WriteLine($"'{calc.Number2}' {isDecimalMessage}\n");
                             break;
                         }
                         //convert strings to int after verifying
@@ -120,25 +126,23 @@ class Program
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
                         //check if it is not a decimal and inform user
-                        if (!calc.Number1.Contains(".") && !calc.Number2.Contains("."))
+                        if (!calc.Number1.Contains(decimalSeparator) && !calc.Number2.Contains(decimalSeparator))
                         {
-                            Console.WriteLine($"{calc.Number1} {isIntegerMessage}");
-                            Console.WriteLine($"{calc.Number2} {isIntegerMessage}\n");
+                            Console.WriteLine($"'{calc.Number1}' {isIntegerMessage}");
+                            Console.WriteLine($"'{calc.Number2}' {isIntegerMessage}\n");
                             break;
                         }
-                        else if (!calc.Number1.Contains("."))
+                        else if (!calc.Number1.Contains(decimalSeparator))
                         {
-                            Console.WriteLine($"{calc.Number1} {isIntegerMessage}\n");
+                            Console.WriteLine($"'{calc.Number1}' {isIntegerMessage}\n");
                             break;
                         }
-                        else if (!calc.Number2.Contains("."))
+                        else if (!calc.Number2.Contains(decimalSeparator))
                         {
-                            Console.WriteLine($"{calc.Number2} {isIntegerMessage}\n");
+                            Console.WriteLine($"'{calc.Number2}' {isIntegerMessage}\n");
                             break;
                         }
-                        //convert strings to decimal after verifying
-                        //we could of course have used ToInt64 but that seemed like a bit of an overkill
-                        //in this little example
+                        //convert strings to decimal after verifying                        
                         decimal num1 = Convert.ToDecimal(calc.Number1);
                         decimal num2 = Convert.ToDecimal(calc.Number2);
 
