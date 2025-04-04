@@ -147,6 +147,7 @@ class Program
                         decimal num2 = Convert.ToDecimal(calc.Number2);
 
                         //display a special message if the sum is the answer to Life, the Universe & Everything :-)
+                        //technically 42.0 is not equal to 42, although it sort of is.
                         if (calc.Add(num1, num2) == dontPanic)
                             Console.WriteLine(dontPanicMessage);
                         else
