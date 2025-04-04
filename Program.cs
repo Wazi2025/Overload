@@ -122,7 +122,7 @@ class Program
                     Console.WriteLine("Second decimal number:");
                     calc.Number2 = Console.ReadLine();
 
-                    //check if entered numbers (in string format) can be parsed into int
+                    //check if entered numbers (in string format) can be parsed into decimal
                     if (calc.IsANumber(calc.Number1) && calc.IsANumber(calc.Number2))
                     {
                         //check if it is not a decimal and inform user
